@@ -1,9 +1,17 @@
 <div class="top-bar"></div>
 <h1>{{title}}</h1>
-  <h2>{{game.name}} details!</h2>
-  <div><label>id: </label>{{game.id}}</div>
+<div *ngIf="selectedGame">
+  <h2>{{selectedGame.name}} details!</h2>
+  <div><label>id: </label>{{selectedGame.id}}</div>
   <div>
-    <label>name: </label>
-    <input [(ngModel)]="game.name" placeholder="name">
+      <label>name: </label>
+      <input [(ngModel)]="selectedGame.name" placeholder="name"/>
   </div>
-  
+</div>
+
+  <h2>My games</h2>
+  <ul class="games">
+    <li *ngFor="let game of games" (click)="onSelect(game)" [class.selected]="game === selectedGame">
+      <span class="badge">{{game.id}}</span> {{game.name}}
+    </li>
+  </ul>
