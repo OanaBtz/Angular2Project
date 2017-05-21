@@ -16,10 +16,10 @@
 
 .content-container{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   position: absolute;
   width: 100%;
-  height: 24.8em;
+  height: 75%;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -72,20 +72,34 @@ a:hover {color: rgb(141, 151, 202); }
     color: white;
   }
   .games {
-    margin: 0 0 2em 0;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 1em;
     list-style-type: none;
     padding: 0;
-    width: 15em;
+    width: 100%;
+    /*height: 100%;*/
   }
-  .games li {
+  .box{
+    float: left;
     cursor: pointer;
     position: relative;
     left: 0;
     background-color: #EEE;
     margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
+    padding: 0;
+    height: 12em;
+    width: 12em;
     border-radius: 4px;
+  }
+  .games .box-body {
+    width: 100%;
+    height: 10.2em;
+    border-radius: 4px 4px 0 0; 
+    background-color: green;
   }
   .games li.selected:hover {
     background-color: #BBD8DC !important;
@@ -97,20 +111,24 @@ a:hover {color: rgb(141, 151, 202); }
     left: .1em;
   }
   .games .text {
-    position: relative;
-    top: -3px;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 1em;
+    /*top: -3px;*/
   }
-  .games .badge {
+  .games .box-footer {
     display: inline-block;
     font-size: small;
     color: white;
-    padding: 0.8em 0.7em 0 0.7em;
+    /*padding: 0.8em 0.7em 0 0.7em;*/
     background-color: #607D8B;
     line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
+    position: absolute;
+    /*left: -1px;*/
+    top: 10px;
     height: 1.8em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
+    width: 100%;
+    /*margin-right: .8em;*/
+    margin-top: 12em;
+    border-radius: 0px 0px 4px 4px;
   }

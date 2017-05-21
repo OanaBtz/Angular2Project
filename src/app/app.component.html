@@ -22,19 +22,18 @@
 </div>
 
 <div class="content-container">
-<div *ngIf="selectedGame">
+<!--<div *ngIf="selectedGame">
   <h2>{{selectedGame.name}} details!</h2>
   <div><label>id: </label>{{selectedGame.id}}</div>
   <div>
       <label>name: </label>
       <input [(ngModel)]="selectedGame.name" placeholder="name"/>
   </div>
-</div>
-
-  <h2>My games</h2>
+</div>-->
+<!--[class.selected]="game === selectedGame"-->
   <ul class="games">
-    <li *ngFor="let game of games" (click)="onSelect(game)" [class.selected]="game === selectedGame">
-      <span class="badge">{{game.id}}</span> {{game.name}}
+    <li *ngFor="let game of games" (click)="onSelect(game)">
+      <div class="box"><div class="box-body"></div><div class="box-footer">{{game.name}}</div></div> 
     </li>
   </ul>
   <!--<div class="content">-->
