@@ -11,7 +11,8 @@ import { GameComponent } from './game/game.component';
 import { AddGameComponent } from './add-game/add-game.component';
 
 const appRoutes: Routes =[
-  {path: 'add-game', component: AddGameComponent}
+  {path: 'add-game', component: AddGameComponent},
+  {path: 'all-games', component: AllGamesComponent}
 ]
 
 @NgModule({
