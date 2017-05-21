@@ -8,37 +8,37 @@
 <div class="title-container">
 <ul class="options">   
       <!--<a routerLink="/all-games">All games</a>-->
-      <!--<a routerLink="/add-game">Add game</a>-->
+      <a routerLink="/add-game">Add game</a>
       <!--<a routerLink="/search-game">Search game</a>-->
       <a href="#">All games</a>
-      <a href="#">Add game</a>
+      <!--<a href="#">Add game</a>-->
       <a href="#">Search game</a>
       
 </ul>
 <div id="title">
-        <h1 id="travel">Nerd</h1>
-        <h1 id="discover">board games shop</h1>
+        <h1 id="title">Nerd</h1>
+        <h1 id="subtitle">board games shop</h1>
     </div>
 </div>
 
 <div class="content-container">
-<div *ngIf="selectedGame">
+<!--<div *ngIf="selectedGame">
   <h2>{{selectedGame.name}} details!</h2>
   <div><label>id: </label>{{selectedGame.id}}</div>
   <div>
       <label>name: </label>
       <input [(ngModel)]="selectedGame.name" placeholder="name"/>
   </div>
-</div>
+</div>-->
 
-  <h2>My games</h2>
+  <!--<h2>My games</h2>
   <ul class="games">
     <li *ngFor="let game of games" (click)="onSelect(game)" [class.selected]="game === selectedGame">
       <span class="badge">{{game.id}}</span> {{game.name}}
     </li>
-  </ul>
+  </ul>-->
   <!--<div class="content">-->
-    <!--<router-outlet></router-outlet>-->
+    <router-outlet></router-outlet>
   <!--</div>-->
 </div>
 

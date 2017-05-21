@@ -56,12 +56,12 @@ a:hover {color: rgb(141, 151, 202); }
   
 }
 
-#travel{
+#title{
   font-family: sans-serif;
   color: white;
 }
 
-#discover{
+#subtitle{
   font-family: Georgia, 'Times New Roman', Times, serif;
   color:rgb(219, 216, 209);
   padding-left: 0.5em
