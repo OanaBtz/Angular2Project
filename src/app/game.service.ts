@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
-
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class GameService {
@@ -16,6 +17,21 @@ export class GameService {
         .subscribe(data => {console.log("it worked!")});
     
     }
+    getGames() {
+        return this.http.get(`http://angular2api1.azurewebsites.net/api/internships/getall`).map((res:Response) => res.json())
+    //.subscribe( result => this.result = result);
+  }
+  
+  deleteGame(name: string){
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      this.http.post('http://angular2api1.azurewebsites.net/api/internships/delete/'+name, {headers: headers})
+    .subscribe(data => {console.log("it worked! " +name)});
+    
+  }
+  
+
      private handleError (error: Response | any) {
         // In a real world app, you might use a remote logging infrastructure
      let errMsg: string;

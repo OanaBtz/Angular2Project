@@ -1,36 +1,35 @@
 import { Game } from './../game';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { RouterModule, Routes, RouterOutlet } from '@angular/router';
+import { Router} from '@angular/router';
+import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,FormControl } from '@angular/forms';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'all-games',
   templateUrl: './all-games.component.html',
-  styleUrls: ['./all-games.component.css']
+  styleUrls: ['./all-games.component.css'],
+  providers: [GameService]
 })
 export class AllGamesComponent implements OnInit {
-  game: Game = {
-    id: 1,
-    name: "Catan"
-  };
-  games=GAMES;
-  selectedGame: Game;
-  onSelect(game: Game): void{
-    this.selectedGame = game;
+  games=[];
+  
+  constructor( private gameService: GameService, public router: Router) { }
+
+  delete(name: string){
+    this.gameService.deleteGame(name);
   }
-  constructor() { }
+
+  loadGame(){
+    this.gameService.getGames().subscribe(data => this.games = data);
+
+  }
 
   ngOnInit() {
+    this.loadGame();
   }
 
 }
-const GAMES: Game[] = [
-  { id: 1, name: "Catan" },
-  { id: 2, name: "Risk" },
-  { id: 3, name: "Game of Thrones" },
-  { id: 4, name: "Axis and Allies" },
-  { id: 5, name: "Ticket to ride" },
-  { id: 6, name: "Love Letter" },
-  { id: 7, name: "King of Tokyo" },
-  { id: 8, name: "Flux" },
-  { id: 9, name: "Monopoly" },
-];
+
 

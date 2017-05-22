@@ -1,5 +1,12 @@
-<ul class="games">
-  <li *ngFor="let game of games" (click)="onSelect(game)">
-    <div class="box"><div class="box-body"></div><div class="box-footer">{{game.name}}</div></div> 
+<div class="allGamesContainer">
+<div class="games">
+  <li *ngFor="let game of games" >
+    <div class="box">
+      <div class="box-body"></div>
+      <div class="box-footer">{{game.name}}
+        <button class="delete" (click)= "delete(game._name)">X</button>
+      </div>
+      </div> 
   </li>
-</ul>
+</div>
+</div>

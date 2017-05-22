@@ -23,7 +23,7 @@
     margin-top: 0;
   }
   a {
-    
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: rgb(219, 216, 209);
     padding-right: 2em;
     padding-top: 1em;
@@ -40,7 +40,7 @@ a:hover {color: rgb(141, 151, 202); }
 }
 
 #title{
-  font-family: sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: white;
 }
 
