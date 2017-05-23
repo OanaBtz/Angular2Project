@@ -17,13 +17,12 @@ export class AllGamesComponent implements OnInit {
   
   constructor( private gameService: GameService, public router: Router) { }
 
-  delete(name: string){
-    this.gameService.deleteGame(name);
+  delete(id: string){
+    this.gameService.deleteGame(id);
   }
 
   loadGame(){
     this.gameService.getGames().subscribe(data => this.games = data);
-
   }
 
   ngOnInit() {

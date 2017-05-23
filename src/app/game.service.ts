@@ -19,15 +19,14 @@ export class GameService {
     }
     getGames() {
         return this.http.get(`http://angular2api1.azurewebsites.net/api/internships/getall`).map((res:Response) => res.json())
-    //.subscribe( result => this.result = result);
   }
   
-  deleteGame(name: string){
+  deleteGame(id: string){
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post('http://angular2api1.azurewebsites.net/api/internships/delete/'+name, {headers: headers})
-    .subscribe(data => {console.log("it worked! " +name)});
+      this.http.post('http://angular2api1.azurewebsites.net/api/internships/delete/'+id, {headers: headers})
+    .subscribe(data => {console.log("it worked! " +id)});
     
   }
   

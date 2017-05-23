@@ -1,12 +1,14 @@
 <div class="allGamesContainer">
 <div class="games">
-  <li *ngFor="let game of games" >
-    <div class="box">
-      <div class="box-body"></div>
-      <div class="box-footer">{{game.name}}
-        <button class="delete" (click)= "delete(game._name)">X</button>
-      </div>
-      </div> 
-  </li>
+   <div *ngFor="let game of games"> 
+     <span *ngIf="game.name != null">
+        <div class="box">
+           <div class="box-body"></div>
+              <div class="box-footer">{{game.name}}
+                  <button class="delete" (click)= "delete(game._id)">X</button>
+              </div>
+        </div> 
+     </span>
+  </div>
 </div>
 </div>
