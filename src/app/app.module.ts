@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { AllGamesComponent } from './all-games/all-games.component';
 import { GameComponent } from './game/game.component';
 import { AddGameComponent } from './add-game/add-game.component';
+// import { ViewGameComponent } from './view-game/view-game.component';
 
 const appRoutes: Routes =[
   {path: 'add-game', component: AddGameComponent},
-  {path: 'all-games', component: AllGamesComponent}
+  {path: 'all-games', component: AllGamesComponent},
+  // {path: 'view-game', component: ViewGameComponent}
 ]
 
 @NgModule({
@@ -20,7 +22,8 @@ const appRoutes: Routes =[
     AppComponent,
     AllGamesComponent,
     GameComponent,
-    AddGameComponent
+    AddGameComponent,
+    // ViewGameComponent
   ],
   imports: [
     BrowserModule,

@@ -7,11 +7,8 @@
 
 <div class="title-container">
 <ul class="options">   
-      <!--<a routerLink="/all-games">All games</a>-->
       <a routerLink="/add-game">Add game</a>
-      <!--<a routerLink="/search-game">Search game</a>-->
-      <a href="/all-games">All games</a>
-      <!--<a href="#">Add game</a>-->
+      <a routerLink="/all-games">All games</a>
       <a href="#">Search game</a>
       
 </ul>
@@ -22,24 +19,7 @@
 </div>
 
 <div class="content-container">
-<!--<div *ngIf="selectedGame">
-  <h2>{{selectedGame.name}} details!</h2>
-  <div><label>id: </label>{{selectedGame.id}}</div>
-  <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedGame.name" placeholder="name"/>
-  </div>
-</div>-->
-
-<!--[class.selected]="game === selectedGame"-->
-
-
-  <!--<h2>My games</h2>
-
-  -->
-  <!--<div class="content">-->
     <router-outlet></router-outlet>
-  <!--</div>-->
 </div>
 
 </body>

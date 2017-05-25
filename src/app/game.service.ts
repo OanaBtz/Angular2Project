@@ -8,27 +8,31 @@ import 'rxjs/add/operator/catch';
 export class GameService {
     constructor( private http: Http){}
 
-    addGame( name: string, description: string, urlImage: string){
-        let body = 'name='+name+"&description="+description+"&url="+urlImage;
+addGame( name: string, description: string, urlImage: string){
+        let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+'';
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        this.http.post('http://angular2api1.azurewebsites.net/api/internships/create', body, {headers: headers})
+        this.http.post('http://localhost:3000/games', body, {headers: headers})
         .subscribe(data => {console.log("it worked!")});
     
-    }
-    getGames() {
-        return this.http.get(`http://angular2api1.azurewebsites.net/api/internships/getall`).map((res:Response) => res.json())
-  }
+}
+getGames() {
+      return this.http.get(`http://localhost:3000/games`).map((res:Response) => res.json())
+}
   
-  deleteGame(id: string){
+deleteGame(id: string){
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.post('http://angular2api1.azurewebsites.net/api/internships/delete/'+id, {headers: headers})
+      this.http.delete('http://localhost:3000/games/'+id, {headers: headers})
     .subscribe(data => {console.log("it worked! " +id)});
     
-  }
+}
+// getGame(id: string) {
+//       return this.http.get(`http://localhost:3000/games/`+id).map((res:Response) => res.json())
+// }
+
   
 
      private handleError (error: Response | any) {
