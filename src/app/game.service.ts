@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers } from '@angular/http';
+import {Game} from './game'; 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -29,9 +30,19 @@ deleteGame(id: string){
     .subscribe(data => {console.log("it worked! " +id)});
     
 }
-// getGame(id: string) {
-//       return this.http.get(`http://localhost:3000/games/`+id).map((res:Response) => res.json())
-// }
+getGame(id: string) {
+      return this.http.get(`http://localhost:3000/games/`+id).map((res:Response) => res.json())
+}
+
+update(id: string, name: string, description: string, urlImage: string ){
+
+      let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+'';
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      this.http.put('http://localhost:3000/games/'+id, body, {headers: headers})
+      .subscribe(data => {console.log("it worked!"+name)});
+}
 
   
 

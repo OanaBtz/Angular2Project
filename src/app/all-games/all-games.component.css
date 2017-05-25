@@ -51,11 +51,9 @@
     background-color: rgb(60, 63, 96) !important;
     color: rgb(60, 63, 96);
   }
-  .games .text {
-    display: flex;
-    justify-content: center;
-    /*margin-right: 1em;*/
-
+  .name {
+    width: 80%;
+    margin: .5em;
     font-family: Georgia, 'Times New Roman', Times, serif;
     /*top: -3px;*/
   }
@@ -72,32 +70,62 @@
     margin-top: 15em;
     border-radius:  4px;
   }
+
+  #buttons{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: .2em;
+  }
+
+
   .deleteButton{
     position:relative;
     display: flex;
-    justify-items: flex-end;
+    /*justify-items: flex-end;*/
     
   }
 
   .delete{
-    /*background-image: url("/../images/delete.png");*/
-    background-color: red;
-    background-size: 100%;
+    display: flex;
+    align-self: center;
+    border-radius: 3px;
+    background-image: url("../../images/delete1.png");
+    background-color: #ff4d4d;
+    background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
     border:none;
-    height: 100%;
+    height: 80%;
     width: 2em;
     color: white;
   }
-  .delete{
-    /*background-image: url("/../images/delete.png");*/
-    background-color: green;
-    background-size: 100%;
+  .edit{
+    display: flex;
+    align-self: center;
+    border-radius: 3px;
+    background-image: url("../../images/edit1.png");
+    background-color:#ffe066;
+    background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
     border:none;
-    height: 100%;
+    height: 80%;
+    width: 2em;
+    color: white;
+  }
+  .view{
+    display: flex;
+    align-self: center;
+    border-radius: 3px;
+    background-image: url("../../images/details1.png");
+    background-color: #66ffcc;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    margin: 3px;
+    height: 80%;
     width: 2em;
     color: white;
   }

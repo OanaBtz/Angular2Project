@@ -15,14 +15,8 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 })
 export class AllGamesComponent implements OnInit {
   games=[];
-  
+  selectedGame: Game;
   constructor( private gameService: GameService, public router: Router) { }
-
- private _sanitizer: DomSanitizer;
-
-  getImage (image) {
-     return this._sanitizer.bypassSecurityTrustStyle('url(${image})');
-  }
 
   delete(id: string){
     this.gameService.deleteGame(id);
@@ -33,11 +27,16 @@ export class AllGamesComponent implements OnInit {
     // console.log(data.name)
   }
 
-  // view_game(id: string){
-  //   this.gameService.getGame(id);
-  //   // console.log(this.gameService.getGame(id));
-  // }
+  onSelect(game: Game): void {
+    this.selectedGame = game;
+  }
 
+   gotoDetail(id: string): void {
+    this.router.navigate(['/view-game',id]);
+  }
+   gotoEdit(id: string): void {
+    this.router.navigate(['/edit-game',id]);
+  }
 
   ngOnInit() {
     this.loadGame();

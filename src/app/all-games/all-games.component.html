@@ -5,12 +5,16 @@
         <div class="box">
            <div class="box-body" [ngStyle]="{'background-image': 'url(' + game.urlImage + ')'}"></div>
              <div class="box-footer">
-                  <div class="name"> {{game.name}} </div>
-                  <div class="deleteButton"><button class="delete" (click)= "delete(game._id)">X</button></div>
-                  <!--<div class="viewButton"><button class="view" (click)= "view_game(game._id)">O</button></div>                  -->
+                <div class="name"> {{game.name}} </div>
+                <div id="buttons">
+                  <div class="delete" (click)= "delete(game._id)"></div>
+                  <div class="view" (click)="gotoDetail(game._id)"></div>
+                  <div class="edit" (click)="gotoEdit(game._id)"></div>
+                </div>
               </div>
         </div> 
      </span>
   </div>
 </div>
 </div>
+

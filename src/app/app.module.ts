@@ -5,16 +5,19 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from '@angular/router';
 import { GameService } from './game.service';
 
+
 import { AppComponent } from './app.component';
 import { AllGamesComponent } from './all-games/all-games.component';
 import { GameComponent } from './game/game.component';
 import { AddGameComponent } from './add-game/add-game.component';
-// import { ViewGameComponent } from './view-game/view-game.component';
+import { ViewGameComponent } from './view-game/view-game.component';
+import { EditGameComponent } from './edit-game/edit-game.component';
 
 const appRoutes: Routes =[
   {path: 'add-game', component: AddGameComponent},
   {path: 'all-games', component: AllGamesComponent},
-  // {path: 'view-game', component: ViewGameComponent}
+  {path: 'view-game/:id', component: ViewGameComponent},
+  {path: 'edit-game/:id', component: EditGameComponent}
 ]
 
 @NgModule({
@@ -23,7 +26,8 @@ const appRoutes: Routes =[
     AllGamesComponent,
     GameComponent,
     AddGameComponent,
-    // ViewGameComponent
+    ViewGameComponent,
+    EditGameComponent,
   ],
   imports: [
     BrowserModule,
