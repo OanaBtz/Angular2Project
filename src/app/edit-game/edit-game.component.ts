@@ -33,6 +33,7 @@ export class EditGameComponent implements OnInit {
       ) {
 
         this.newGameForm = formBuilder.group({
+        'id': [''],
         'name' : [''],
         'description': [''],
         'urlImage':['']
@@ -47,17 +48,26 @@ export class EditGameComponent implements OnInit {
 
   save(id, name, description, urlImage): void {
     console.log(name)
+    // console.log(id);
+    if(id==""){
+      id = this.game._id;
+      console.log(this.game._id);
+    }
     if(name==""){
       name = this.game.name;
       console.log(this.game.name);
     }
      if(description==""){
       description = this.game.description;
+      console.log(this.game.description);
     }
      if(urlImage==""){
       urlImage = this.game.urlImage;
+      console.log(this.game.urlImage);
     }
+    
     this.gameService.update(id, name, description, urlImage);
+    
   }
 
 

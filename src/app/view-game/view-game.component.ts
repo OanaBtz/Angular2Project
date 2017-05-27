@@ -35,11 +35,6 @@ ngOnInit(): void {
     .subscribe(game => this.game = game);
 }
 
-// save(): void {
-//     this.gameService.update(this.game);
-//      .then(() => this.goBack());
-//   }
-
 
 goBack(): void {
   this.location.back();

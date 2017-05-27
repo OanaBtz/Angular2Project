@@ -18,10 +18,14 @@
             <form [formGroup]="newGameForm" let formGame = "ngForm">
 
         <div class="form-container">
+             <div>
+                <label  class="field">Game id</label>
+                <input formControlName="id" type="text" placeholder="{{game._id}}" disabled=true  #gameId>
+            </div>
 
             <div>
                 <label  class="field">Name</label>
-                <input formControlName="name" type="text" placeholder="{{game.name}}" value="null"  #name> 
+                <input formControlName="name" type="text" placeholder="{{game.name}}" #name> 
             </div>
 
             <div>
@@ -34,7 +38,10 @@
                 <input formControlName="urlImage" type="text" placeholder="{{game.urlImage}}"  #urlImage>
             </div>
 
-           <button (click)="save(game.id, name.value, description.value, urlImage.value)">Save</button>
+            <!--<input value="{{game.id}}" style="display: none" #id >-->
+
+           <button (click)="save( gameId.value, name.value, description.value, urlImage.value)">Save</button>
+           
            <button (click)="goBack()">Back</button>
 
         </div>

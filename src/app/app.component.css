@@ -16,11 +16,15 @@
 
 
 .options {
-    
+    position: fixed;
+    padding-left: 0px;
     overflow: hidden; 
     flex-flow: row;
-    text-align: center;
+    text-align: center !important;
     margin-top: 0;
+    background-color: rgb(85, 71, 60);
+    width: 100%;
+    z-index: 100;
   }
   a {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -48,4 +52,14 @@ a:hover {color: rgb(141, 151, 202); }
   font-family: Georgia, 'Times New Roman', Times, serif;
   color:rgb(219, 216, 209);
   padding-left: 0.5em
+}
+
+
+@media (max-width: 376px){
+  .title-container{
+    height: 10em;
+  }
+  #title{
+        padding-left: 10px;
+  }
 }
