@@ -30,18 +30,6 @@ describe('angular2-exam-project app', () => {
     expect(description).toBeDefined();
   });
 
-
-  // it("the game should be able to be deleted", () => {
-  //   // let firstGame = element.all(by.css(".games div.game")).get(4);
-  //   let deleteButton = element.all('.games .game .delete').first();
-
-  //   deleteButton.click();
-
-  //   // let numberOfGamesAfterDelete = element.all(by.css(".games")).count();
-  //   expect(deleteButton).toBeDefined;
-
-  // })
-
 /////////////////all tests related to add-game page
   
   it("in the add-game page the name of the game should be empty", () => {
@@ -70,8 +58,4 @@ describe('angular2-exam-project app', () => {
     
   });
 
-  
-
-
-// browser.pause();
 });
