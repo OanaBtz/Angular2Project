@@ -53,11 +53,15 @@ a:hover {color: $color4; }
 }
 
 
-@media (max-width: 376px){
+@media (max-width: 500px){
   .title-container{
     height: 10em;
   }
   #title{
         padding-left: 10px;
+        font-size: 1.5em;
+  }
+  #subtitle{
+        font-size: 1.5em;
   }
 }

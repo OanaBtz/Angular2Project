@@ -1,6 +1,6 @@
 <div class="allGamesContainer">
 <div class="games">
-   <div *ngFor="let game of games"> 
+   <div class="game" *ngFor="let game of games"> 
      <span *ngIf="game.name != null">
         <div class="box">
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
@@ -9,7 +9,8 @@
                      <div class="box-body" [ngStyle]="{'background-image': 'url(' + game.urlImage + ')'}"></div>
 	              	</div>
 		              <div class="back">
-	                  <div class="box-body"><div class="description">{{game.description}}</div></div>
+	                  <div class="box-body">
+                      <div class="description">{{game.description}}</div></div>
                 	</div>
 	            </div>
           </div>

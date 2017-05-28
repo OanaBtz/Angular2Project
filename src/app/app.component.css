@@ -41,11 +41,15 @@ a:hover {
   font-size: 1.8em;
   padding-left: 0.5em; }
 
-@media (max-width: 376px) {
+@media (max-width: 500px) {
   .title-container {
     height: 10em; }
 
   #title {
-    padding-left: 10px; } }
+    padding-left: 10px;
+    font-size: 1.5em; }
+
+  #subtitle {
+    font-size: 1.5em; } }
 
 /*# sourceMappingURL=app.component.css.map */
