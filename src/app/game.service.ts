@@ -50,7 +50,9 @@ update(id: string, name: string, description: string, urlImage: string ){
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       this.http.put('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/'+id, body, {headers: headers})
-      .subscribe(data => {console.log("it worked!"+name)});
+      .subscribe(data => {console.log("it worked!"+name)
+            this.router.navigate(['/all-games']);
+      });
 }
 
   
