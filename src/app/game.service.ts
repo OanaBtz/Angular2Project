@@ -4,10 +4,11 @@ import { Http, Response, Headers } from '@angular/http';
 import {Game} from './game'; 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Router } from "@angular/router";
 
 @Injectable()
 export class GameService {
-    constructor( private http: Http){}
+    constructor( private http: Http, private router: Router){}
 
 addGame( name: string, description: string, urlImage: string){
         let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+'';
@@ -16,8 +17,7 @@ addGame( name: string, description: string, urlImage: string){
 
         this.http.post('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games', body, {headers: headers})
         .subscribe(data => {console.log("it worked!");
-            alert("You have succeffuly added the "+name+" game");
-            this.getGames();
+            this.router.navigate(['/all-games']);
 });
     
 }
@@ -30,11 +30,13 @@ deleteGame(id: string){
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
       this.http.delete('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/'+id, {headers: headers})
-    .subscribe(data => { this.getGames(); });
+    .subscribe(success => { 
+          if(success.status == 200){
+          console.log("it worked");
+          this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games`).map((res:Response) => res.json())
+          }
+      });
 
-    
-
-   
     
 }
 getGame(id: string) {
