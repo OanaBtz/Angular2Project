@@ -5,24 +5,31 @@
   padding: none;
   width: 100%;
   height: 7em;
-  background-color: #55473c; }
+  background-color: rgba(85, 71, 60, 0.22);
+  }
 
 .options {
   position: fixed;
   padding-left: 0px;
-  overflow: hidden;
   flex-flow: row;
   text-align: center !important;
   margin-top: 0;
-  background-color: #55473c;
+  background-color: rgb(85, 71, 60);
+  z-index: 100; 
   width: 100%;
-  z-index: 100; }
+  border-radius: 4px;
+  width: 99%;
+  left: 5px;
+  }
 
 a {
-  font-family: Georgia "Times New Roman" Times serif;
+  font-family: Georgia,'Times New Roman', Times serif;
   color: #dbd8d1;
   padding-right: 2em;
-  padding-top: 1em; }
+  padding-top: 1em; 
+  font-size: 1.2em;
+  text-decoration: none;
+  }
 
 a:hover {
   color: #8d97ca; }
@@ -31,12 +38,12 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-family: Georgia "Times New Roman" Times serif;
+  font-family:Georgia,'Times New Roman', Times serif;
   font-size: 1.8em;
   color: white; }
 
 #subtitle {
-  font-family: Georgia "Times New Roman" Times serif;
+  font-family: Georgia,'Times New Roman', Times serif;
   color: #dbd8d1;
   font-size: 1.8em;
   padding-left: 0.5em; }
