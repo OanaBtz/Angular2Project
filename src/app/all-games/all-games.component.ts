@@ -6,6 +6,7 @@ import { Router} from '@angular/router';
 import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,FormControl } from '@angular/forms';
 import { GameService } from '../game.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { Http, Response, Headers } from '@angular/http';
 
 @Component({
   selector: 'all-games',
@@ -16,13 +17,12 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 export class AllGamesComponent implements OnInit {
   games=[];
   selectedGame: Game;
-  constructor( private gameService: GameService, public router: Router) { }
+  constructor( private gameService: GameService, public router: Router ) { }
 
   delete(id: string){
     this.gameService.deleteGame(id);
-    
+    this.loadGame();
   }
-
   loadGame(){
     this.gameService.getGames().subscribe(data => this.games = data);
     // console.log(data.name)
