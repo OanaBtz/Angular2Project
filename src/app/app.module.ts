@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from '@angular/router';
 import { GameService } from './game.service';
-
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+    
 
 import { AppComponent } from './app.component';
 import { AllGamesComponent } from './all-games/all-games.component';
@@ -33,6 +35,7 @@ const appRoutes: Routes =[
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    ToastModule.forRoot(),
     ReactiveFormsModule
   ],
   providers: [

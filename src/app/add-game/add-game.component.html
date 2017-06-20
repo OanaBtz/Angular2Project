@@ -1,3 +1,5 @@
+
+
 <div class="addGameContainer">
     <div class="box">
         <div class="box-body"></div>
@@ -28,11 +30,8 @@
 
             <div>
                 <p>
-                   <button class="button"  id="new" (click)="addNewGame(name.value, description.value, urlImage.value); formGame.reset()">Create</button>
+                   <button class="button"  id="new" (click)="addNewGame(name.value, description.value, urlImage.value); formGame.reset(); showSuccess()">Create</button>
                 </p>
-                <div *ngIf="clear == true">
-                        Game saved
-                </div>
             </div>
         </div>
       </form>
