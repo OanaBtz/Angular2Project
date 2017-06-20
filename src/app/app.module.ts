@@ -13,6 +13,7 @@ import { ViewGameComponent } from './view-game/view-game.component';
 import { EditGameComponent } from './edit-game/edit-game.component';
 
 const appRoutes: Routes =[
+  {path: '', redirectTo: 'all-games', pathMatch: 'full'},
   {path: 'add-game', component: AddGameComponent},
   {path: 'all-games', component: AllGamesComponent},
   {path: 'view-game/:id', component: ViewGameComponent},

@@ -20,6 +20,7 @@ export class AllGamesComponent implements OnInit {
 
   delete(id: string){
     this.gameService.deleteGame(id);
+    
   }
 
   loadGame(){

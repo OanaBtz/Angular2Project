@@ -15,32 +15,32 @@ addGame( name: string, description: string, urlImage: string){
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        this.http.post('http://localhost:3000/games', body, {headers: headers})
+        this.http.post('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games', body, {headers: headers})
         .subscribe(data => {console.log("it worked!");
             this.router.navigate(['/all-games']);
 });
     
 }
 getGames() {
-      return this.http.get(`http://localhost:3000/games`).map((res:Response) => res.json())
+      return this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games`).map((res:Response) => res.json())
 }
   
 deleteGame(id: string){
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.delete('http://localhost:3000/games/'+id, {headers: headers})
+      this.http.delete('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/'+id, {headers: headers})
     .subscribe(success => { 
           if(success.status == 200){
           console.log("it worked");
-          this.http.get(`http://localhost:3000/games`).map((res:Response) => res.json())
+          this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games`).map((res:Response) => res.json())
           }
       });
 
     
 }
 getGame(id: string) {
-      return this.http.get(`http://localhost:3000/games/`+id).map((res:Response) => res.json())
+      return this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/`+id).map((res:Response) => res.json())
 }
 
 update(id: string, name: string, description: string, urlImage: string ){
@@ -49,7 +49,7 @@ update(id: string, name: string, description: string, urlImage: string ){
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.put('http://localhost:3000/games/'+id, body, {headers: headers})
+      this.http.put('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/'+id, body, {headers: headers})
       .subscribe(data => {console.log("it worked!"+name)
             this.router.navigate(['/all-games']);
       });
