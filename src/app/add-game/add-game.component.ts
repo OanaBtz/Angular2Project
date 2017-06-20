@@ -8,6 +8,8 @@ import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,FormControl } f
   providers: [GameService]
 })
 export class AddGameComponent implements OnInit {
+  clear = false;
+  public n: number = 1;
 
 str: string;
 public newGameForm: FormGroup;
@@ -21,7 +23,14 @@ public newGameForm: FormGroup;
   }
 
   addNewGame(name, description, urlImage){
+    this.clear = true;
+    setTimeout(() => {
+      this.n = this.n + 20;
+      this.clear = false;
+    }, 1000);
     this.gameService.addGame(name, description, urlImage);
+    
+    
   }
 
   ngOnInit() {

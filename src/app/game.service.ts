@@ -17,7 +17,7 @@ addGame( name: string, description: string, urlImage: string){
 
         this.http.post('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games', body, {headers: headers})
         .subscribe(data => {console.log("it worked!");
-            this.router.navigate(['/all-games']);
+            // this.router.navigate(['/all-games']);
 });
     
 }
@@ -33,7 +33,6 @@ deleteGame(id: string){
     .subscribe(success => { 
           if(success.status == 200){
           console.log("it worked");
-          this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games`).map((res:Response) => res.json())
           }
       });
 
