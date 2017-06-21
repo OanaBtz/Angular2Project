@@ -33,9 +33,7 @@ deleteGame(id: string){
           if(success.status == 200){
           console.log("it worked");
           }
-      });
-
-    
+      });   
 }
 getGame(id: string) {
       return this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/`+id).map((res:Response) => res.json())

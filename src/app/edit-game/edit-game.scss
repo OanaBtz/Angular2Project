@@ -72,6 +72,7 @@ button{
     border: 2px solid $color5;
     background-color: $color4;
     border-radius: 2px;
+    margin: 5px;
 }
 
 .fieldProperty{
@@ -103,5 +104,9 @@ h2{
     width: 80%;
     margin: .5em;
     @include fontStack( Georgia 'Times New Roman' Times serif );
+  }
+
+  .footer-buttons {
+    display: flex;
   }
 

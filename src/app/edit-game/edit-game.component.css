@@ -65,7 +65,8 @@ button {
   margin-bottom: .5em;
   border: 2px solid #3c3f60;
   background-color: #8d97ca;
-  border-radius: 2px; }
+  border-radius: 2px;
+  margin: 10px; }
 
 .fieldProperty {
   width: 100%;
@@ -93,5 +94,8 @@ h2 {
   width: 80%;
   margin: .5em;
   font-family: Georgia "Times New Roman" Times serif; }
+
+  .footer-buttons {
+    display: flex; }
 
 /*# sourceMappingURL=edit-game.component.css.map */
