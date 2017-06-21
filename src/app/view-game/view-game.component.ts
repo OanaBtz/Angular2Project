@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import { GameService } from '../game.service';
 import { Game } from './../game';
+
 import 'rxjs/add/operator/switchMap';
 
 
@@ -26,8 +27,10 @@ export class ViewGameComponent implements OnInit {
   constructor(
       private gameService: GameService,
       private route: ActivatedRoute,
-      private location: Location
+      private location: Location,
+      
       ) {}
+
 
 ngOnInit(): void {
   this.route.params

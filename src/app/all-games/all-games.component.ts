@@ -7,7 +7,6 @@ import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,FormControl } f
 import { GameService } from '../game.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { Http, Response, Headers } from '@angular/http';
-import { ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'all-games',
@@ -18,22 +17,17 @@ import { ToastsManager} from 'ng2-toastr/ng2-toastr';
 export class AllGamesComponent implements OnInit {
   games=[];
   selectedGame: Game;
-  constructor( private gameService: GameService, public router: Router, public toastr: ToastsManager, vcr: ViewContainerRef ) { 
-    this.toastr.setRootViewContainerRef(vcr);
+  constructor( private gameService: GameService, public router: Router ) { 
+    
   }
 
   delete(id: string){
     this.gameService.deleteGame(id);
     this.loadGame();
-    this.showDelete();
   }
   loadGame(){
     this.gameService.getGames().subscribe(data => this.games = data);
     // console.log(data.name)
-  }
-
-  showDelete() {
-    this.toastr.error('The game was deleted', 'Oops!');
   }
 
   onSelect(game: Game): void {

@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit , ViewContainerRef} from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import { GameService } from '../game.service';
 import { Game } from './../game';
-
+import { ToastsManager} from 'ng2-toastr/ng2-toastr';
 import 'rxjs/add/operator/switchMap';
 
 
@@ -29,7 +29,9 @@ export class EditGameComponent implements OnInit {
       private gameService: GameService,
       private route: ActivatedRoute,
       private location: Location,
-      private formBuilder: FormBuilder
+      private formBuilder: FormBuilder,
+      public toastr: ToastsManager, 
+      vcr: ViewContainerRef
       ) {
 
         this.newGameForm = formBuilder.group({
@@ -37,7 +39,8 @@ export class EditGameComponent implements OnInit {
         'name' : [''],
         'description': [''],
         'urlImage':['']
-        })
+      });
+      this.toastr.setRootViewContainerRef(vcr);
       }
 
   ngOnInit(): void {
@@ -45,28 +48,31 @@ export class EditGameComponent implements OnInit {
     .switchMap((params: Params) => this.gameService.getGame(params['id']))
     .subscribe(game => this.game = game);
   }
+  showEdit() {
+    this.toastr.success('The game was edited', 'woohoo!');
+  }
 
   save(id, name, description, urlImage): void {
-    console.log(name)
-    // console.log(id);
+    
     if(id==""){
       id = this.game._id;
-      console.log(this.game._id);
+      
     }
     if(name==""){
       name = this.game.name;
-      console.log(this.game.name);
+      
     }
      if(description==""){
       description = this.game.description;
-      console.log(this.game.description);
+      
     }
      if(urlImage==""){
       urlImage = this.game.urlImage;
-      console.log(this.game.urlImage);
+     
     }
     
     this.gameService.update(id, name, description, urlImage);
+    this.showEdit();
     
   }
 
