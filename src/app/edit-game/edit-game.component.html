@@ -2,18 +2,14 @@
     <div class="addGameContainer">
         <div class="box">
             <div class="box-body" [ngStyle]="{'background-image': 'url(' + game.urlImage + ')'}"></div>
-                <div class="box-footer">
-                    <div class="name">{{game.name}}</div>
-                </div>
+            <div class="box-footer">
+                <div class="name">{{game.name}}</div>
+            </div>
         </div> 
         <div id="gameProperties">
             <h2>{{game.name}}`s properties:</h2>
             <form [formGroup]="newGameForm" let formGame = "ngForm">
                 <div class="form-container">
-                    <div>
-                        <label  class="field">Game id</label>
-                        <input formControlName="id" type="text" placeholder="{{game._id}}" disabled=true  #gameId>
-                    </div>
                     <div>
                         <label  class="field">Name</label>
                         <input formControlName="name" type="text" placeholder="{{game.name}}" #name> 
@@ -28,8 +24,8 @@
                     </div>
 
                     <!--<input value="{{game.id}}" style="display: none" #id >-->
-<div>
-                    <button (click)="save( gameId.value, name.value, description.value, urlImage.value)">Save</button>
+                    <div>
+                    <button (click)="save(name.value, description.value, urlImage.value)">Save</button>
                     <button (click)="goBack()">Back</button>
                     </div>
                 </div>
