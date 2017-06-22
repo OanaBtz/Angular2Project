@@ -52,12 +52,8 @@ export class EditGameComponent implements OnInit {
     this.toastr.success('The game was edited', 'woohoo!');
   }
 
-  save(id, name, description, urlImage): void {
+  save(name, description, urlImage): void {
     
-    if(id==""){
-      id = this.game._id;
-      
-    }
     if(name==""){
       name = this.game.name;
       
@@ -71,7 +67,7 @@ export class EditGameComponent implements OnInit {
      
     }
     
-    this.gameService.update(id, name, description, urlImage);
+    this.gameService.update(this.game._id, name, description, urlImage);
     this.showEdit();
     
   }
