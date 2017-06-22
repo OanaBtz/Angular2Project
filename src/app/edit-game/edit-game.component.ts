@@ -10,7 +10,7 @@ import 'rxjs/add/operator/switchMap';
 import { NgForm } from '@angular/forms';
 import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { Router} from '@angular/router';
-import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,FormControl } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
