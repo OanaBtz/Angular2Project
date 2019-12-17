@@ -6,9 +6,6 @@ import { Game } from './../game';
 
 import 'rxjs/add/operator/switchMap';
 
-
-import { NgForm } from '@angular/forms';
-import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { Router} from '@angular/router';
 import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,FormControl } from '@angular/forms';
 
@@ -29,14 +26,18 @@ export class EditGameComponent implements OnInit {
       private gameService: GameService,
       private route: ActivatedRoute,
       private location: Location,
-      private formBuilder: FormBuilder
+      private formBuilder: FormBuilder,
+      private router: Router,
       ) {
 
         this.newGameForm = formBuilder.group({
         'id': [''],
         'name' : [''],
         'description': [''],
-        'urlImage':['']
+        'urlImage':[''],
+        'unitPrice': [''],
+        'stock':[''],
+        'averageRating':['']
         })
       }
 
@@ -46,7 +47,7 @@ export class EditGameComponent implements OnInit {
     .subscribe(game => this.game = game);
   }
 
-  save(id, name, description, urlImage): void {
+  save(id, name, description, urlImage, unitPrice, stock, averageRating): void {
     console.log(name)
     // console.log(id);
     if(id==""){
@@ -65,9 +66,21 @@ export class EditGameComponent implements OnInit {
       urlImage = this.game.urlImage;
       console.log(this.game.urlImage);
     }
+    if(unitPrice==""){
+      unitPrice = this.game.unitPrice;
+      console.log(this.game.unitPrice);
+    }
+    if(stock==""){
+      stock = this.game.stock;
+      console.log(this.game.stock);
+    }
+    if(averageRating==""){
+      averageRating = this.game.averageRating;
+      console.log(this.game.averageRating);
+    }
     
-    this.gameService.update(id, name, description, urlImage);
-    
+    this.gameService.update(id, name, description, urlImage, unitPrice, stock, averageRating);
+    this.router.navigate(['all-games']);
   }
 
 

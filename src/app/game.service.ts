@@ -5,45 +5,57 @@ import {Game} from './game';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+var URL = 'http://localhost:3000';
 @Injectable()
 export class GameService {
     constructor( private http: Http){}
 
-addGame( name: string, description: string, urlImage: string){
-        let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+'';
+addGame( name: string, description: string, urlImage: string, unitPrice: number, stock: number, averageRating: number){
+        let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+"&unitPrice="+unitPrice+"&stock="+stock+"&averageRating="+averageRating+'';
         let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        this.http.post('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games', body, {headers: headers})
+        this.http.post(URL+'/games', body, {headers: headers})
         .subscribe(data => {console.log("it worked!")});
     
 }
 getGames() {
-      return this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games`).map((res:Response) => res.json())
+      return this.http.get(URL+'/games').map((res:Response) => res.json())
+}
+
+getCustomers(){
+      return this.http.get(URL+'/customers').map((res:Response) => res.json())
 }
   
 deleteGame(id: string){
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.delete('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/'+id, {headers: headers})
+      this.http.delete(URL+'/games/'+id, {headers: headers})
     .subscribe(data => {console.log("it worked! " +id)});
     
 }
 getGame(id: string) {
-      return this.http.get(`http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/`+id).map((res:Response) => res.json())
+      return this.http.get(URL+'/games/'+id).map((res:Response) => res.json())
 }
 
-update(id: string, name: string, description: string, urlImage: string ){
+update(id: string, name: string, description: string, urlImage: string, unitPrice: number, stock: number, averageRating: number ){
 
-      let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+'';
+      let body = 'name='+name+"&description="+description+"&urlImage="+urlImage+"&unitPrice="+unitPrice+"&stock="+stock+"&averageRating="+averageRating+'';
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-      this.http.put('http://ec2-52-56-203-137.eu-west-2.compute.amazonaws.com:3000/games/'+id, body, {headers: headers})
+      this.http.put(URL+'/games/'+id, body, {headers: headers})
       .subscribe(data => {console.log("it worked!"+name)});
 }
 
+login(email: string, password: string){
+      return this.http.get(URL+'/customers/'+email+'/password').map((res:Response) => res.json())
+}
+
+register(name: string, surname: string, address: string, zipcode: string, city: string, phoneNr: string, totalAmount: number){
+      let body = 'name='+name+'&surname='+surname+'&address='+address+'&zipcode='+zipcode+'city='+city+'&phoneNr='+phoneNr+'&totalAmount='+totalAmount+'';
+}
   
 
      private handleError (error: Response | any) {

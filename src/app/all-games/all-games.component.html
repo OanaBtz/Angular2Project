@@ -10,16 +10,19 @@
 	              	</div>
 		              <div class="back">
 	                  <div class="box-body">
-                      <div class="description">{{game.description}}</div></div>
+                      <div class="description">{{game.description}}</div>
+                      <div class="description">Price: {{game.unitPrice}}</div>
+                      <div class="description">On stock: {{game.stock}}</div>
+                      <div class="description">Average rating: {{game.averageRating}}</div></div>
                 	</div>
 	            </div>
           </div>
              <div class="box-footer">
                 <div class="name"> {{game.name}} </div>
                 <div id="buttons">
-                  <div class="delete" (click)= "delete(game._id)"></div>
                   <div class="view" (click)="gotoDetail(game._id)"></div>
-                  <div class="edit" (click)="gotoEdit(game._id)"></div>
+                  <!--<div class="delete" (click)= "delete(game._id)"></div>
+                  <div class="edit" (click)="gotoEdit(game._id)"></div>-->
                 </div>
               </div>
         </div> 

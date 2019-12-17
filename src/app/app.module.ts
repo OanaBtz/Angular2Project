@@ -11,8 +11,10 @@ import { AllGamesComponent } from './all-games/all-games.component';
 import { AddGameComponent } from './add-game/add-game.component';
 import { ViewGameComponent } from './view-game/view-game.component';
 import { EditGameComponent } from './edit-game/edit-game.component';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 const appRoutes: Routes =[
+  {path: 'login', component: LoginRegisterComponent},
   {path: 'add-game', component: AddGameComponent},
   {path: 'all-games', component: AllGamesComponent},
   {path: 'view-game/:id', component: ViewGameComponent},
@@ -26,6 +28,7 @@ const appRoutes: Routes =[
     AddGameComponent,
     ViewGameComponent,
     EditGameComponent,
+    LoginRegisterComponent,
   ],
   imports: [
     BrowserModule,

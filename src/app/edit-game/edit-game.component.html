@@ -38,9 +38,26 @@
                 <input formControlName="urlImage" type="text" placeholder="{{game.urlImage}}"  #urlImage>
             </div>
 
+            <div>
+                <label  class="field">Unit price</label>
+                <input formControlName="unitPrice" type="number" placeholder="{{game.unitPrice}}"  #unitPrice>
+            </div>
+
+            <div>
+                <label  class="field">Stock</label>
+                <input formControlName="stock" type="number" placeholder="{{game.stock}}"  #stock>
+            </div>
+
+            <div>
+                <label  class="field">Average rating</label>
+                <input formControlName="averageRating" type="number" placeholder="{{game.averageRating}}"  #averageRating>
+            </div>
+
+
+
             <!--<input value="{{game.id}}" style="display: none" #id >-->
 
-           <button (click)="save( gameId.value, name.value, description.value, urlImage.value)">Save</button>
+           <button (click)="save( gameId.value, name.value, description.value, urlImage.value, unitPrice.value, stock.value, averageRating.value)">Save</button>
            
            <button (click)="goBack()">Back</button>
 

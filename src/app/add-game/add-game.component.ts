@@ -16,12 +16,15 @@ public newGameForm: FormGroup;
     this.newGameForm = formBuilder.group({
       'name' : [''],
       'description': [''],
-      'urlImage':['']
+      'urlImage':[''],
+      'unitPrice':[''],
+      'stock':[''],
+      'averageRating':['']
     })
   }
 
-  addNewGame(name, description, urlImage){
-    this.gameService.addGame(name, description, urlImage);
+  addNewGame(name, description, urlImage, unitPrice, stock, averageRating){
+    this.gameService.addGame(name, description, urlImage, unitPrice, stock, averageRating);
   }
 
   ngOnInit() {

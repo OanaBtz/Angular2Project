@@ -1,0 +1,66 @@
+
+<div class="addGameContainer">
+    <div class="box">
+        <h2>Log in</h2>
+        <form [formGroup]="newLogInForm" let formLogIn = "ngForm">
+
+        <div class="form-container">
+            <div>
+               <label  class="field">Email</label>
+               <input formControlName="email" type="text" placeholder="Email is required"  #email>
+           </div>
+
+           <div>
+               <label  class="field">Password</label>
+               <input formControlName="password" type="password" placeholder="Password is required" #password> 
+           </div>
+           <button (click)="login( email.value, password.value)">Log in</button>
+        </div>
+        </form>
+    </div>
+    <div id="gameProperties">
+        <h2>Register</h2>
+  
+        <form [formGroup]="newGameForm" let formGame = "ngForm">
+  
+          <div class="form-container">
+               <div>
+                  <label  class="field">Surname</label>
+                  <input formControlName="surname" type="text" #surname>
+              </div>
+  
+              <div>
+                  <label  class="field">Name</label>
+                  <input formControlName="name" type="text" #name> 
+              </div>
+  
+              <div>
+                  <label  class="field">Address</label>
+                  <input formControlName="address" type="text"  #address>
+              </div>
+  
+              <div>
+                  <label  class="field">Zip code</label>
+                  <input formControlName="urlImage" type="text" #zipcode>
+              </div>
+  
+              <div>
+                  <label  class="field">City</label>
+                  <input formControlName="city" type="text"  #city>
+              </div>
+  
+              <div>
+                  <label  class="field">Email</label>
+                  <input formControlName="email" type="email"  #email>
+              </div>  
+  
+              <!--<input value="{{game.id}}" style="display: none" #id >-->
+  
+             <button (click)="register( surname.value, name.value, address.value, zipcode.value, city.value, email.value)">Register</button>
+  
+          </div>
+        </form>
+      </div>
+  </div>
+
+  
